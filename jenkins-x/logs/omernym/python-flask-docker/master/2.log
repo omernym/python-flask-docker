@@ -1,0 +1,124 @@
+Step: step-credential-initializer-wjpwd:
+
+{"level":"warn","ts":1566398277.9287548,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1566398277.9293363,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Step: step-working-dir-initializer-dcqpn:
+
+{"level":"warn","ts":1566398278.1938686,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1566398278.197329,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source /workspace/source/charts/python-flask-docker\""}
+Step: step-place-tools:
+
+Step: step-git-source-*******-python-flask-docker-mas-vr6sj:
+
+{"level":"warn","ts":1566398293.2646563,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1566398293.4430387,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/*******/python-flask-docker.git @ v0.0.2 in path /workspace/source"}
+Step: step-git-merge:
+
+WARNING: no SHAs to merge, falling back to initial cloned commit
+Step: step-setup-**-git-credentials:
+
+Generated Git credentials file /workspace/xdg_config/git/credentials
+Step: step-build-python-unittest:
+
+
+----------------------------------------------------------------------
+Ran 0 tests in 0.000s
+
+OK
+Step: step-build-container-build:
+
+[36mINFO[0m[0000] Downloading base image python:3.6            
+[36mINFO[0m[0000] Error while retrieving image from cache: getting file info: stat /workspace/sha256:79aad8c3fea1dec156db500856a0ffdec91564e379d997acaf39bd9b637691ff: no such file or directory 
+[36mINFO[0m[0000] Downloading base image python:3.6            
+[36mINFO[0m[0000] Applying label maintainer=lorenz.vanthillo@gmail.com 
+[36mINFO[0m[0000] Using files from context: [/workspace/source] 
+[36mINFO[0m[0000] Checking for cached layer 733373435183.dkr.ecr.us-east-1.amazonaws.com/todo/cache:898a01756847a13d761b61c0c1110a98eab01033ee9bb5ddbe6d17f262e7ea4f... 
+[36mINFO[0m[0000] No cached layer found for cmd RUN pip install -r requirements.txt 
+[36mINFO[0m[0000] Unpacking rootfs as cmd RUN pip install -r requirements.txt requires it. 
+[36mINFO[0m[0014] Taking snapshot of full filesystem...        
+[36mINFO[0m[0021] LABEL maintainer="lorenz.vanthillo@gmail.com" 
+[36mINFO[0m[0021] Applying label maintainer=lorenz.vanthillo@gmail.com 
+[36mINFO[0m[0021] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0021] Using files from context: [/workspace/source] 
+[36mINFO[0m[0021] COPY . /app                                  
+[36mINFO[0m[0021] Taking snapshot of files...                  
+[36mINFO[0m[0021] WORKDIR /app                                 
+[36mINFO[0m[0021] cmd: workdir                                 
+[36mINFO[0m[0021] Changed working directory to /app            
+[36mINFO[0m[0021] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0021] RUN pip install -r requirements.txt          
+[36mINFO[0m[0021] cmd: /bin/sh                                 
+[36mINFO[0m[0021] args: [-c pip install -r requirements.txt]   
+Collecting flask==1.0.2 (from -r requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/7f/e7/08578774ed4536d3242b14dacb4696386634607af824ea997202cd0edb4b/Flask-1.0.2-py2.py3-none-any.whl (91kB)
+Collecting Werkzeug>=0.14 (from flask==1.0.2->-r requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/d1/ab/d3bed6b92042622d24decc7aadc8877badf18aeca1571045840ad4956d3f/Werkzeug-0.15.5-py2.py3-none-any.whl (328kB)
+Collecting itsdangerous>=0.24 (from flask==1.0.2->-r requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/76/ae/44b03b253d6fade317f32c24d100b3b35c2239807046a4c953c7b89fa49e/itsdangerous-1.1.0-py2.py3-none-any.whl
+Collecting Jinja2>=2.10 (from flask==1.0.2->-r requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/1d/e7/fd8b501e7a6dfe492a433deb7b9d833d39ca74916fa8bc63dd1a4947a671/Jinja2-2.10.1-py2.py3-none-any.whl (124kB)
+Collecting click>=5.1 (from flask==1.0.2->-r requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/fa/37/45185cb5abbc30d7257104c434fe0b07e5a195a6847506c074527aa599ec/Click-7.0-py2.py3-none-any.whl (81kB)
+Collecting MarkupSafe>=0.23 (from Jinja2>=2.10->flask==1.0.2->-r requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/b2/5f/23e0023be6bb885d00ffbefad2942bc51a620328ee910f64abe5a8d18dd1/MarkupSafe-1.1.1-cp36-cp36m-manylinux1_x86_64.whl
+Installing collected packages: Werkzeug, itsdangerous, MarkupSafe, Jinja2, click, flask
+Successfully installed Jinja2-2.10.1 MarkupSafe-1.1.1 Werkzeug-0.15.5 click-7.0 flask-1.0.2 itsdangerous-1.1.0
+[36mINFO[0m[0022] Taking snapshot of full filesystem...        
+[36mINFO[0m[0026] Pushing layer 733373435183.dkr.ecr.us-east-1.amazonaws.com/todo/cache:898a01756847a13d761b61c0c1110a98eab01033ee9bb5ddbe6d17f262e7ea4f to cache now 
+[36mINFO[0m[0026] EXPOSE 8080                                  
+[36mINFO[0m[0026] cmd: EXPOSE                                  
+[36mINFO[0m[0026] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0026] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0026] ENTRYPOINT ["python"]                        
+[36mINFO[0m[0026] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0026] CMD ["app/app.py"]                           
+[36mINFO[0m[0026] No files changed in this command, skipping snapshotting. 
+[33mWARN[0m[0027] error uploading layer to cache: failed to push to destination 733373435183.dkr.ecr.us-east-1.amazonaws.com/todo/cache:898a01756847a13d761b61c0c1110a98eab01033ee9bb5ddbe6d17f262e7ea4f: NAME_UNKNOWN: The repository with name 'todo/cache' does not exist in the registry with id '733373435183' 
+2019/08/21 14:38:43 existing blob: sha256:38b0e25e4ab95d9e945b213ca0147e9413efe4deaba447cc26afe26e71aeb18b
+2019/08/21 14:38:43 existing blob: sha256:4ae16bd4778367b46064f39554128dd2fda2803a5747fddeff74059f353391c9
+2019/08/21 14:38:43 existing blob: sha256:943f57f16bdde226c2b7f70d841d5b76f59ff9e64ae684220a93ddf445c6bf5f
+2019/08/21 14:38:43 existing blob: sha256:2ea1f7804402db2da64e84a26bd591f41667ad69cd7f2a2c6106d9bb04dde260
+2019/08/21 14:38:43 existing blob: sha256:cad1284c08072fff5ab054588f78b8b9d7a6f0b4e674936ab83d4c76824ce724
+2019/08/21 14:38:43 existing blob: sha256:96465440c20877524189ae75d361dd29e5d0df330a8dac9427f972b429fe0159
+2019/08/21 14:38:43 existing blob: sha256:bbab4ec87ac4f89eaabdf68dddbd1dd930e3ad43bded38d761b89abf9389a893
+2019/08/21 14:38:43 existing blob: sha256:f697d20669c2ad2cc10a177f5303bd6a9572ce858e8db381e4bf2f12364ca013
+2019/08/21 14:38:43 existing blob: sha256:6ac892e64b941f376c41f33aa31e39a69bbc457c5b9e436b5ecf451a6d4c651e
+2019/08/21 14:38:44 pushed blob: sha256:8d4a2c164c9657e3c8f9c06f02b050d1766e37ee80c5cad4404cfb09ea0fba20
+2019/08/21 14:38:44 pushed blob: sha256:ce0d39ac0787cd7abd97916bd447d382c13385da12961160e0b6d5605690e143
+2019/08/21 14:38:45 pushed blob: sha256:158c429f53c7776afd4da57fa2e6c46fe4842cab515cc9748d2c97dc498772a5
+2019/08/21 14:38:45 733373435183.dkr.ecr.us-east-1.amazonaws.com/*******/python-flask-docker:0.0.2: digest: sha256:733fbce3885d79d95143e47c0cfe600bc6c99e5579f86ffbf79430db2371d555 size: 2067
+Step: step-build-post-build:
+
+no CVE provider running in the current ** namespace so skip adding image to be analysed
+Step: step-promote-changelog:
+
+Converted /workspace/source/charts/python-flask-docker to an unshallow repository
+Generating change log from git ref 9733834a46d3586cc44b634e53b41047a502aeef => f4447bfbbeb7b3ac4fa7d8f734b923bfc1b09e45
+Associating user x-0 in users.jenkins.io with email omer@nymhealth.com to git GitProvider user with login -0 as emails match
+Adding label jenkins.io/git-github-userid=-0 to user x-0 in users.jenkins.io
+WARNING: Failed to enrich commit 91bfdb2aa9298b0e4ee7bd1c0798bc3232b46647 with issues: User.jenkins.io "x-0" is invalid: metadata.labels: Invalid value: "-0": a valid label must be an empty string or consist of alphanumeric characters, '-', '_' or '.', and must start and end with an alphanumeric character (e.g. 'MyValue',  or 'my_value',  or '12345', regex used for validation is '(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?')
+Finding issues in commit messages using git format
+WARNING: No release found for *******/python-flask-docker and tag v0.0.2 so creating a new release
+Updated the release information at https://github.com/*******/python-flask-docker/releases/tag/v0.0.2
+generated: /workspace/source/charts/python-flask-docker/templates/release.yaml
+Created Release python-flask-docker-0-0-2 resource in namespace **
+Updating PipelineActivity *******-python-flask-docker-master-2 with version 0.0.2
+Updated PipelineActivities *******-python-flask-docker-master-2 with release notes URL: https://github.com/*******/python-flask-docker/releases/tag/v0.0.2
+Step: step-promote-helm-release:
+
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
+Successfully added Helm repository storage.googleapis.com.
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Uploading chart file python-flask-docker-0.0.2.tgz to http://jenkins-x-chartmuseum:8080/api/charts
+Received 201 response: {"saved":true}
+Step: step-promote-**-promote:
+
+WARNING: prow based install so skip waiting for the merge of Pull Requests to go green as currently there is an issue with gettingstatuses from the PR, see https://github.com/jenkins-x/**/issues/2410
+Promoting app python-flask-docker version 0.0.2 to namespace **-staging
+Created Pull Request: https://github.com/*******/environment-**-test-staging/pull/2
+Added label  to Pull Request https://github.com/*******/environment-**-test-staging/pull/2
+Pull Request https://github.com/*******/environment-**-test-staging/pull/2 is merged at sha 8060fecf90c3c0065082166a3aa23e7d58f8a8e5
+Pull Request merged but we are not waiting for the update pipeline to complete!
